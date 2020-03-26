@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple JS App</title>
+    
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      
+  </head>
+    
+    
+    
+    
+  <body>
+      
+      
+      
+      
+      <main>
+            <h1 class="fade">Pokemon List</h1>
+            <div id="div_list_container" class="fade">
+          
+                <ul class="list_pokemon"></ul>
+                
+            </div>
+            <div id="div_membrane" aria-hidden="true" class="fade"></div>
+          
+          
+          
+            <div id="div_modal_container" class="centre">
+                
+              <div id='div_loading'>
+                <p>loading...</p>
+                <img id="img_loading" src="../images/loading.gif">
+              </div>    
+
+              <div id="div_modal" aria-hidden="true">
+
+                    <div id="div_info" aria-hidden="true">
+                        <button id="button_modal_close">close</button>    
+                        <h1>Pokemon Information</h1>    
+                            <label for="p_name"><b>Name:</b>
+                                <p id="p_name"></p>
+                            </label>    
+
+                            <label for="p_height"><b>Height:</b>
+                                <p id="p_height"></p>
+                            </label>
+
+                    </div>
+
+                    <div id="div_image">
+                        <img id="image_pokemon" alt="pokemon image">
+                    </div>
+
+              </div>
+
+          </div>
+      
+      
+      
+      </main>
+      
+      
+      
+      
+      
+     
+<!--      JAVASCRIPT-->
+      
+      <script src="../javascript/js:promise-polyfil.js"></script>
+      <script src="../javascript/fetch.umd.js"></script>
+      <script src="../javascript/scripts.js"></script>
+  </body>
+    
+</html>
