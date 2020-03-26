@@ -5,13 +5,7 @@ var pokemonRepository = (function(){
     
     
     var repository=[];
-    
-    
-    
 
-    
-    
-    
     var plist=document.querySelector('.list_pokemon');
     var loadingMessage ='List loading...';
     
@@ -24,33 +18,37 @@ var pokemonRepository = (function(){
 
     function addListItem(pokemon){
         
+        
+
         var listItem=document.createElement('li');
         var btn = document.createElement('button');
         
         
         btn.innerText=pokemon.name;
-        btn.classList.add('button_pokemon');
+        btn.setAttribute('type','button');
+        btn.classList.add('btn');
+        btn.classList.add('btn-primary');
+        btn.setAttribute('data-toggle','modal');
+        btn.setAttribute('data-target','#modal_details');
+
+        listItem.classList.add('list-group-item');
         listItem.appendChild(btn);
         plist.appendChild(listItem);
         
-       
+        $(btn).click(function(){
+            loadDetails(pokemon);
+        })
         
-        
-        
-        btn.addEventListener('click',function(){
-        
-        showDetails(pokemon);
-        });
-        
+
+
     }
     
-    function showDetails(pokemon){
-        loadDetails(pokemon);
-    }
+    
     
     
     function loadList(){
-        showLoadingMessage();
+        
+//        showLoadingMessage();
         var path='https://pokeapi.co/api/v2/pokemon/';
         fetch(path).then(function(response){
             return response.json();
@@ -58,24 +56,22 @@ var pokemonRepository = (function(){
             
             list.results.forEach(function(item){
                 var pokemon = {name:item.name, detailsUrl:item.url};
+                
                 add(pokemon);
-            })
-            
-            
-            
-            
-            
+            });
+
         }).catch(function (e) {
             console.error(e);
         });
         
-        hideLoadingMessage();
+//        hideLoadingMessage();
     }
     
     
     function add(pokemon){
 
             repository.push(pokemon);
+        
             addListItem(pokemon);
             
             
@@ -94,40 +90,26 @@ var pokemonRepository = (function(){
             pokemon = {name:pokemon.name,detailsUrl:pokemon.detailsUrl, height:height, imgUrl:imgUrl};
             
             //add values to the modal elements
-            document.getElementById('p_name').innerHTML=pokemon.name;
-            document.getElementById('p_height').innerHTML=pokemon.height;
+            
+            
+            $('#pokemon_name').html("Name: "+pokemon.name);
+            $('#pokemon_height').html("Height: "+pokemon.height);
             document.getElementById('image_pokemon').src=pokemon.imgUrl;
             
-            //fade the pokemon list
-            var fade =document.querySelectorAll('.fade');
-            fade.forEach(function(i){
-                i.style.opacity='0.2';
-            });
+            hideLoadingMessage();
             
-            //display the modal
-            document.querySelector('#div_modal_container').style.display='flex';
-            
-            //add listener to the close button and for other close methods
-            document.querySelector('#button_modal_close').addEventListener('click',closeModal);
-            document.addEventListener('keydown',function(src){
-                if(src.key==='Escape'){
-                    closeModal();
-                }
-            });
-            
-            document.querySelector('#div_modal_container').addEventListener('click',function(src){
-                if(src.target.id==='div_modal_container'){
-                    closeModal();
-                }
+            $('.close_modal').click(function(){
+                $('#pokemon_name').html("");
+                $('#pokemon_height').html("");
+                document.getElementById('image_pokemon').src="#"
             })
-            
         });
         
-        hideLoadingMessage();
+        
     }
     
      function showLoadingMessage(){
-         document.getElementById('div_loading').style.display='block';
+         document.getElementById('div_loading').style.display='flex';
          
      }   
     
@@ -139,17 +121,17 @@ var pokemonRepository = (function(){
     
     
     
-    function closeModal(){
-        //close the modal
-        document.querySelector('#div_modal_container').style.display='none';
-        
-        //show the pokemon list
-            var fade =document.querySelectorAll('.fade');
-            fade.forEach(function(i){
-                i.style.opacity='1';
-            });
-        
-    }
+//    function closeModal(){
+//        //close the modal
+//        document.querySelector('#div_modal_container').style.display='none';
+//        
+//        //show the pokemon list
+//            var fade =document.querySelectorAll('.fade');
+//            fade.forEach(function(i){
+//                i.style.opacity='1';
+//            });
+//        
+//    }
     
     
     
