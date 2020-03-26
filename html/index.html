@@ -6,79 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Simple JS App</title>
     
-   
+<!--    Bootstrap & custom CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="../css/styles.css">  
+      
       
   </head>
     
     
     
-    
-  <body>
-      
-      
-      
-      
-      <main>
-            <h1 class="fade">Pokemon List</h1>
-            <div id="div_list_container" class="fade">
-          
-                <ul class="list_pokemon"></ul>
+    <body>
+        <header class="container">
+            <div class="row">
+                <nav class="col"><a href="#">pokedex homepage</a></nav>
+                <nav class="col">a</nav>
+            </div>
+                
+            
+        </header>
+        
+            
+        
+            <div class="container">
+                <div class="row">
+                    <h1 class="col header">Pokemon List</h1>
+                </div>
+            </div>
+        
+            <div class="container main_content">
+
+                <div class="row">
+                    <ul class="col list-group list_pokemon"></ul>
+                </div>
+                
+                <!--                MODAL-->
+                <div class="modal fade" id="modal_details" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div id='div_loading'>
+                                <img id="img_loading" src="../images/loading.gif">
+                         </div>        
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Pokemon Information</h5>
+                            <button type="button" class="close close_modal" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+
+                              <img id="image_pokemon" alt="pokemon icon">
+                                  <h3 id="pokemon_name"></h3>
+                                  <h3 id="pokemon_height"></h3>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary close_modal" data-dismiss="modal">Close</button>
+
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <!--                END MODAL-->
                 
             </div>
-            <div id="div_membrane" aria-hidden="true" class="fade"></div>
-          
-          
-          
-            <div id="div_modal_container" class="centre">
-                
-              <div id='div_loading'>
-                <p>loading...</p>
-                <img id="img_loading" src="../images/loading.gif">
-              </div>    
-
-              <div id="div_modal" aria-hidden="true">
-
-                    <div id="div_info" aria-hidden="true">
-                        <button id="button_modal_close">close</button>    
-                        <h1>Pokemon Information</h1>    
-                            <label for="p_name"><b>Name:</b>
-                                <p id="p_name"></p>
-                            </label>    
-
-                            <label for="p_height"><b>Height:</b>
-                                <p id="p_height"></p>
-                            </label>
-
+        
+            <div class="container">
+                    <div class="row">
+                        <div class="col" id="membrane"></div>
                     </div>
-
-                    <div id="div_image">
-                        <img id="image_pokemon" alt="pokemon image">
-                    </div>
-
-              </div>
-
-          </div>
-      
-      
-      
-      </main>
+            </div>
+        
       
       
       
       
       
      
-<!--      JAVASCRIPT-->
+<!--JAVASCRIPT-->
       
-      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+      
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
       
       
-      <script src="../javascript/js:promise-polyfil.js"></script>
-      <script src="../javascript/fetch.umd.js"></script>
+      
+      
       <script src="../javascript/scripts.js"></script>
+      
   </body>
     
 </html>
