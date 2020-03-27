@@ -10,21 +10,27 @@ main {height: 100vh;}
                 }
 
 
-#menu {justify-content: center;}
+
 nav {cursor: pointer;}
 
 
 
-header {margin-top: 3%; height: 70px;
+.navbar-nav { width: 100%; }
+.mode {margin-top: 2%;
+       margin-left: 2%;    
+        }
+
+.mode i {font-size: 1.3em;}
+
+header {margin-top: 3%; height: auto;
         background-color: powderblue;
         
         }
-.mode {height: 40px; 
-        
+
+#button_menu{
+             width: auto;
             }
-header,.mode {  display: flex;
-                flex-direction: column;
-                justify-content: center;}
+
 
 button {width: 150px;}
 .btn-primary {background-color: deepskyblue;
@@ -87,4 +93,3 @@ button {width: 150px;}
          background-color: black;    
     
         }
-.navbar {border: solid green thin;}
