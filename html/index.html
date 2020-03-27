@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Simple JS App</title>
     
-<!--    Bootstrap & custom CSS-->
+<!--    Bootstrap , custom CSS, Font-Awsome-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      
+    <!--fontawsome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">  
     
     <link rel="stylesheet" href="../css/styles.css">  
+      
+      
       
       
   </head>
@@ -17,20 +22,36 @@
     
     
     <body>
-        <header class="container">
-            <div class="row">
-                <nav class="col"><a href="#">pokedex homepage</a></nav>
-                <nav class="col">a</nav>
+        <header class="container ">
+
+        <nav class="navbar navbar-expand-md">
+            
+            <button class="navbar-toggler ml-auto" id="button_menu" data-toggle="collapse" data-target="#navbar_mode" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>  
+            
+            
+            <div class="collapse navbar-collapse"  id="navbar_mode">
+
+                    <div class="navbar-nav" aria-label="view mode">
+                        <nav class="text-dark mode  nav-item" id="sun" aria-label="bright-mode"><i class="fas fa-sun"></i></nav>
+                        <nav class="text-light mode nav-item" id="moon" aria-label="dark-mode"><i class="fas fa-moon"></i></nav>
+                    </div>
             </div>
+            
+            
+            
+        
+        </nav>    
                 
             
         </header>
         
             
-        
-            <div class="container">
+        <main>
+            <div class="container" id="header">
                 <div class="row">
-                    <h1 class="col header">Pokemon List</h1>
+                    <h1 class="col header" id="title">Pokemon List</h1>
                 </div>
             </div>
         
@@ -40,44 +61,67 @@
                     <ul class="col list-group list_pokemon"></ul>
                 </div>
                 
+                
+                
                 <!--                MODAL-->
-                <div class="modal fade" id="modal_details" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div id='div_loading'>
-                                <img id="img_loading" src="../images/loading.gif">
-                         </div>        
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Pokemon Information</h5>
-                            <button type="button" class="close close_modal" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-
-                              <img id="image_pokemon" alt="pokemon icon">
-                                  <h3 id="pokemon_name"></h3>
-                                  <h3 id="pokemon_height"></h3>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary close_modal" data-dismiss="modal">Close</button>
-
-                          </div>
+                <div class="modal fade" id="modal_details" role="dialog">
+                    
+                    
+                    
+                     <div class="modal-dialog">   
+                         
+                    <!--loading icon-->
+                        <div id="div_loading">
+                            <img id="image_loading" src="../images/loading.gif" alt="loading icon">
                         </div>
-                      </div>
+                         
+                         
+                        <div class="modal-header">
+
+                            <div class="modal-title">Pokemon Information</div>
+
+                        </div>
+
+                        <div class="modal-body container">
+                            
+                            
+                            
+                            <div class="row">
+                                <div class="col">
+                                    <img id="image_pokemon" alt="pokemon image">
+                                </div>
+                                
+                            </div>
+
+                            <div class="row">
+                                <p class="col" id="pokemon_height"></p>
+                            </div>
+                         
+                         
+                        </div>
+
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-success close_modal" data-dismiss="modal">close</button>
+
+                        </div>
+                         
+                    </div>
                 </div>
                 <!--                END MODAL-->
                 
             </div>
+            
+        </main>    
         
-            <div class="container">
+            <div class="container" id="container_membrane">
                     <div class="row">
                         <div class="col" id="membrane"></div>
                     </div>
             </div>
         
       
-      
+            
       
       
       
