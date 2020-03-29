@@ -92,19 +92,24 @@ var pokemonRepository = (function(){
             return response.json();
         }).then(function(details){
             
+            //clearing old values in case there is a delay in loading the new ones
+            $('.modal-title').html("");
+            $('#pokemon_height').html("");
+            document.getElementById('image_pokemon').src="";
+            
+            
             var height = details.height;
             var imgUrl =details.sprites.front_default;
             pokemon = {name:pokemon.name,detailsUrl:pokemon.detailsUrl, height:height, imgUrl:imgUrl};
             
             //add values to the modal elements
             
-            var height = '<b>Height:</b> '+pokemon.height;
+            var pokemonHeight = '<b>Height:</b> '+pokemon.height;
             var name = pokemon.name.toUpperCase();
-            $('.modal-title').html(name);
-            $('#pokemon_height').html(height);
-
-            
             document.getElementById('image_pokemon').src=pokemon.imgUrl;
+            $('.modal-title').html(name);
+            $('#pokemon_height').html(pokemonHeight);
+            
             
             
             hideLoadingMessage();
@@ -187,6 +192,7 @@ var pokemonRepository = (function(){
 
 
 pokemonRepository.loadList();
+
 
 
 
